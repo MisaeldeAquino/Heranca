@@ -30,17 +30,12 @@ public class BasePlusComissionEmployee extends ComissionEmployee {
     // calcula o ganho semanal do funcionário
     @Override
     public double earnings() {
-        return baseSalary + getComissionRate() * getGrossSales();
+        // salário base + o salário de comissão
+        return getBaseSalary() + super.earnings();
     }
 
     @Override
     public String toString() {
-        return String.format("%s: %s %s\n%s: %s\n%s: R$ %.2f\n%s: %.2f\n%s: R$ %.2f\n%s: R$ %.2f",
-                "Funcionário por comissão", getFirstName(), getLastName(),
-                "CPF", getCpf(),
-                "Venda bruta", getGrossSales(),
-                "Comissão", getComissionRate(),
-                "Salário base", getBaseSalary(),
-                "Rendimento", earnings());
+        return String.format("%s %s\n%s: R$ %.2f", "Salário Base e", super.toString(), "Salário base", getBaseSalary());
     }
 }
