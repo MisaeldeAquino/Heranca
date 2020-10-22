@@ -1,62 +1,16 @@
 // O funcionário por comissão é uma subclasse de object
 // colocamos isso explícito aqui, embora normalmente não
 // seja necessário
-public class BasePlusComissionEmployee extends Object {
-    private final String firstName;
-    private final String lastName;
-    private final String cpf;
-    private double grossSales; // venda bruta semanal
-    private double comissionRate; // percentual de comissão
+public class BasePlusComissionEmployee extends ComissionEmployee {
+    // outros atributos encontram-se na classe ComissionEmployee
     private double baseSalary; // salário base
 
     public BasePlusComissionEmployee(String firstName, String lastName, String cpf,
                                      double grossSales, double comissionRate,
                                      double baseSalary) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.cpf = cpf;
-
-        setGrossSales(grossSales);
-        setComissionRate(comissionRate);
-        setBaseSalary(baseSalary);
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public double getGrossSales() {
-        return grossSales;
-    }
-
-    public double getComissionRate() {
-        return comissionRate;
-    }
-
-    public void setGrossSales(double grossSales) {
-        if (grossSales < 0) {
-            throw new IllegalArgumentException(
-                    "O valor de vendas brutas (grossSales) deve ser >= 0!"
-            );
-        }
-        this.grossSales = grossSales;
-    }
-
-    public void setComissionRate(double comissionRate) {
-        if (comissionRate <= 0 || comissionRate > 1) {
-            throw new IllegalArgumentException(
-                    "A comissão (comissionRate) deve ser > 0 e <= 1!"
-            );
-        }
-        this.comissionRate = comissionRate;
+        // chamando o construtor da superclasse (classe pai: ComissionEmployee)
+        super(firstName, lastName, cpf, grossSales, comissionRate);
+        setBaseSalary(baseSalary); // atributo que é específico da classe BasePlusComissionEmployee
     }
 
     public void setBaseSalary(double baseSalary) {
@@ -74,6 +28,7 @@ public class BasePlusComissionEmployee extends Object {
     }
 
     // calcula o ganho semanal do funcionário
+    @Override
     public double earnings() {
         return baseSalary + comissionRate * grossSales;
     }

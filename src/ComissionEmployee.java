@@ -2,11 +2,11 @@
 // colocamos isso explícito aqui, embora normalmente não
 // seja necessário
 public class ComissionEmployee extends Object {
-    private final String firstName;
-    private final String lastName;
-    private final String cpf;
-    private double grossSales; // venda bruta semanal
-    private double comissionRate; // percentual de comissão
+    protected final String firstName;
+    protected final String lastName;
+    protected final String cpf;
+    protected double grossSales; // venda bruta semanal
+    protected double comissionRate; // percentual de comissão
 
     public ComissionEmployee(String firstName, String lastName, String cpf,
                              double grossSales, double comissionRate) {
