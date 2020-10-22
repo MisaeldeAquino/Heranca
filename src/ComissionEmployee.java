@@ -66,8 +66,8 @@ public class ComissionEmployee extends Object {
         return String.format("%s: %s %s\n%s: %s\n%s: R$ %.2f\n%s: %.2f\n%s: R$ %.2f",
                 "Funcionário por comissão", firstName, lastName,
                 "CPF", cpf,
-                "Venda bruta: ", grossSales,
-                "Comissão: ", comissionRate,
-                "Rendimento: ", earnings());
+                "Venda bruta", grossSales,
+                "Comissão", comissionRate,
+                "Rendimento", earnings());
     }
 }
