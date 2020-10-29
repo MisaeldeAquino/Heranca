@@ -1,33 +1,16 @@
 // O funcionário por comissão é uma subclasse de object
 // colocamos isso explícito aqui, embora normalmente não
 // seja necessário
-public class ComissionEmployee extends Object {
-    private final String firstName;
-    private final String lastName;
-    private final String cpf;
+public class ComissionEmployee extends Employee {
     private double grossSales; // venda bruta semanal
     private double comissionRate; // percentual de comissão
 
     public ComissionEmployee(String firstName, String lastName, String cpf,
                              double grossSales, double comissionRate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.cpf = cpf;
+        super(firstName, lastName, cpf);
 
         setGrossSales(grossSales);
         setComissionRate(comissionRate);
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getCpf() {
-        return cpf;
     }
 
     public double getGrossSales() {
@@ -63,9 +46,9 @@ public class ComissionEmployee extends Object {
 
     @Override
     public String toString() {
-        return String.format("%s: %s %s\n%s: %s\n%s: R$ %.2f\n%s: %.2f\n%s: R$ %.2f",
-                "Funcionário por comissão", firstName, lastName,
-                "CPF", cpf,
+        return String.format("%s %s\n%s: R$ %.2f\n%s: %.2f\n%s: R$ %.2f",
+                "Comissão",
+                super.toString(),
                 "Venda bruta", grossSales,
                 "Comissão", comissionRate,
                 "Rendimento", earnings());
